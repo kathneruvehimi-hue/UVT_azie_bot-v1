@@ -2,9 +2,11 @@ const { Client, LocalAuth } = require('whatsapp-web.js');
 
 const client = new Client({
     authStrategy: new LocalAuth(),
+    authTimeoutMs: 0, // Timeout එක අයින් කිරීමට
+    qrMaxRetries: 10,
     puppeteer: {
         headless: true,
-        executablePath: '/usr/bin/google-chrome-stable', // පද්ධතියේ Chrome එක කෙලින්ම පාවිච්චි කිරීමට
+        executablePath: '/usr/bin/google-chrome-stable',
         args: [
             '--no-sandbox',
             '--disable-setuid-sandbox',
@@ -16,6 +18,7 @@ const client = new Client({
     }
 });
 
+// Pairing code එක ලැබෙන තැන
 client.on('pairing_code', (code) => {
     console.log('-----------------------------------------');
     console.log('ඔබේ Pairing Code එක මෙන්න: ' + code);
@@ -27,4 +30,3 @@ client.on('ready', () => {
 });
 
 client.initialize();
-;
