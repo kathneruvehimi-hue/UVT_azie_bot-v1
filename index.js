@@ -2,12 +2,9 @@ const { Client, LocalAuth } = require('whatsapp-web.js');
 
 const client = new Client({
     authStrategy: new LocalAuth(),
-    authTimeoutMs: 0, // සර්වර් එකේ ප්‍රමාදය නොසලකා හැරීමට
+    authTimeoutMs: 0, 
     puppeteer: {
         headless: true,
-        handleSIGINT: false,
-        handleSIGTERM: false,
-        handleSIGHUP: false,
         executablePath: '/usr/bin/google-chrome-stable',
         args: [
             '--no-sandbox',
@@ -31,4 +28,8 @@ client.on('ready', () => {
     console.log('බොට් සාර්ථකව සම්බන්ධ වුණා!');
 });
 
-client.initialize();
+// සර්වර් එකට හුස්මක් ගන්න තත්පර 10ක ප්‍රමාදයක් ලබා දීම
+setTimeout(() => {
+    console.log("බොට් පණගන්වමින්... කරුණාකර රැඳී සිටින්න.");
+    client.initialize();
+}, 10000);
