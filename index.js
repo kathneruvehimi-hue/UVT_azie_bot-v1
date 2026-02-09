@@ -4,11 +4,11 @@ const client = new Client({
     authStrategy: new LocalAuth(),
     puppeteer: {
         headless: true,
+        executablePath: '/usr/bin/google-chrome-stable', // පද්ධතියේ Chrome එක කෙලින්ම පාවිච්චි කිරීමට
         args: [
             '--no-sandbox',
             '--disable-setuid-sandbox',
             '--disable-dev-shm-usage',
-            '--no-first-run',
             '--no-zygote',
             '--single-process',
             '--disable-gpu'
@@ -16,9 +16,8 @@ const client = new Client({
     }
 });
 
-// Pairing code එක ලොග්ස් වල පෙන්වීමට
 client.on('pairing_code', (code) => {
-    console.log('--- පියවර 2: වට්සැප් එකට දාන්න ඕන කේතය ---');
+    console.log('-----------------------------------------');
     console.log('ඔබේ Pairing Code එක මෙන්න: ' + code);
     console.log('-----------------------------------------');
 });
@@ -28,3 +27,4 @@ client.on('ready', () => {
 });
 
 client.initialize();
+;
