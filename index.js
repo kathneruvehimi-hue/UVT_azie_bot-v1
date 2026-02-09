@@ -2,8 +2,7 @@ const { Client, LocalAuth } = require('whatsapp-web.js');
 
 const client = new Client({
     authStrategy: new LocalAuth(),
-    authTimeoutMs: 0, // Timeout එක අයින් කිරීමට
-    qrMaxRetries: 10,
+    authTimeoutMs: 0, // Time out වීම වැළැක්වීමට
     puppeteer: {
         headless: true,
         executablePath: '/usr/bin/google-chrome-stable',
