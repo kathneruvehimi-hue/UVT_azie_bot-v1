@@ -2,7 +2,7 @@ const { Client, LocalAuth } = require('whatsapp-web.js');
 
 const client = new Client({
     authStrategy: new LocalAuth(),
-    authTimeoutMs: 0, // සර්වර් එක ස්ලෝ නිසා ඇතිවන ටයිම් අවුට් එක අයින් කිරීමට
+    authTimeoutMs: 0, // සර්වර් එකේ ප්‍රමාදය නොසලකා හැරීමට
     puppeteer: {
         headless: true,
         handleSIGINT: false,
