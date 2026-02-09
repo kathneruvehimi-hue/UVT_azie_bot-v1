@@ -27,14 +27,9 @@ client.on('ready', () => {
     console.log('බොට් සාර්ථකව සම්බන්ධ වුණා!');
 });
 
-// සර්වර් එකට හුස්මක් ගන්න තත්පර 50ක ප්‍රමාදයක් ලබා දීම
-console.log("සර්වර් එක සූදානම් වන තෙක් තත්පර 50ක් රැඳී සිටින්න...");
-setTimeout(async () => {
-    console.log("දැන් බොට් පණගන්වමින්... Pairing Code එක ටිකකින් වැටෙයි.");
-    try {
-        // ඔයාගේ අංකය මෙතනට ඇතුළත් කර ඇත
-        await client.initialize("94705160079"); 
-    } catch (err) {
-        console.log("Error: ", err.message);
-    }
-}, 50000);
+// සර්වර් එකට ලෑස්ති වෙන්න තත්පර 10ක පොඩි විරාමයක් ලබා දීම
+console.log("බොට් පණගන්වමින්... කරුණාකර රැඳී සිටින්න.");
+setTimeout(() => {
+    // ඔයාගේ අංකය 94 සමඟ මෙතනට ඇතුළත් කර ඇත
+    client.initialize("94705160079").catch(err => console.log("Error: ", err.message));
+}, 10000);
