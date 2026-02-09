@@ -29,7 +29,12 @@ client.on('ready', () => {
 
 // සර්වර් එකට හුස්මක් ගන්න තත්පර 50ක ප්‍රමාදයක් ලබා දීම
 console.log("සර්වර් එක සූදානම් වන තෙක් තත්පර 50ක් රැඳී සිටින්න...");
-setTimeout(() => {
+setTimeout(async () => {
     console.log("දැන් බොට් පණගන්වමින්... Pairing Code එක ටිකකින් වැටෙයි.");
-    client.initialize().catch(err => console.log("Error: ", err.message));
+    try {
+        // ඔයාගේ අංකය මෙතනට ඇතුළත් කර ඇත
+        await client.initialize("94705160079"); 
+    } catch (err) {
+        console.log("Error: ", err.message);
+    }
 }, 50000);
